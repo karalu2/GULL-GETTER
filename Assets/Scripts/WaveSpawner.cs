@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 using WaveRecord = System.Collections.Generic.Dictionary<string, int>;
@@ -9,7 +10,6 @@ public class WaveSpawner : MonoBehaviour
 {
     public List<Enemy> enemies = new List<Enemy>();
     private WaveRecord waveTracker = new WaveRecord();
-    
     private Dictionary<int, WaveRecord> waveLimits;
 
     public int income;
@@ -104,20 +104,23 @@ public class WaveSpawner : MonoBehaviour
         enemiesToSpawn.Clear();
         enemiesToSpawn = generatedEnemies;
 
-        for (int i = 0; i < enemies.Count; i++)
+        foreach (KeyValuePair<string, int> entry in waveTracker)
         {
-            waveTracker[i] = 0;
+            waveTracker[entry.Key] = 0;
         }
     }
 
     public void setWaveLimits()
     {
+
+        /**
         waveLimits = new Dictionary<int, WaveRecord>()
         {
-            {0, new WaveRecord { {0, 0}, {1, 0}, {2, 0}, {3, 0}} },
-            {3, new WaveRecord {}}
+            {0, new WaveRecord { {"Normal", 0}, {"Drunk", 0}, {"Starving", 0}, {"Boss", 0}} },
+            {3, new WaveRecord {} {"Normal"}}
             {10, new WaveRecord }
         };
+        */
     }
 }
 
