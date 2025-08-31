@@ -529,17 +529,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec297b084832cb45825f7209a52e5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  income: 5
-  currWave: 1
-  enemiesToSpawn: []
+  enemies:
+  - enemyPrefab: {fileID: 2912482716890149306, guid: ddbaa53da4439934790a95b03f9968f0, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 41521313364797064, guid: 042e2c8d9dcf45e45bc3d60297bb7934, type: 3}
+    cost: 1
+  - enemyPrefab: {fileID: 1552239130652511823, guid: a599b13c18771e94090178451058fb2c, type: 3}
+    cost: 1
+  income: 10
+  spawnInterval: 3
   spawnLocations:
   - {fileID: 1097770224}
   - {fileID: 507168459}
   - {fileID: 733539144}
   - {fileID: 1831736260}
   - {fileID: 643771017}
-  waveDuration: 20
 --- !u!4 &1245972861
 Transform:
   m_ObjectHideFlags: 0

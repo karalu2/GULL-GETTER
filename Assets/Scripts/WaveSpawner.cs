@@ -1,130 +1,101 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework.Internal.Commands;
 using UnityEngine;
-
-using WaveRecord = System.Collections.Generic.Dictionary<string, int>;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public List<Enemy> enemies = new List<Enemy>();
-    private WaveRecord waveTracker = new WaveRecord();
-    private Dictionary<int, WaveRecord> waveLimits;
+    [SerializeField] List<Enemy> enemies = new List<Enemy>();
 
-    public int income;
-    public int currWave;
-    private const int waveInterval = 5;
+    [SerializeField] int income;
+    private int currWave;
     private int waveValue;
-    public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    [SerializeField] int waveInterval = 5;
 
-    public List<Transform> spawnLocations = new List<Transform>();
-    public int waveDuration;
-    private float waveTimer;
-    private float spawnInterval;
     private float spawnTimer;
+    private float spawnInterval;
+    [SerializeField] float spawnIntervalMin = 1.5f;
+    private List<GameObject> spawnQueue = new List<GameObject>();
+    [SerializeField] List<Transform> spawnLocations = new List<Transform>();
 
     void Start()
     {
-        waveTracker.Add("Normal", 0);
-        waveTracker.Add("Drunk", 0);
-        waveTracker.Add("Starving", 0);
-        waveTracker.Add("Boss", 0);
-
-        setWaveLimits();
-        GenerateWave();
+        currWave = 1;
+        spawnInterval = 5;
+        waveValue = currWave * income;
+        spawnTimer = spawnInterval;
     }
 
     void FixedUpdate()
     {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            QueueEnemies();
+        }
+        SpawnWave();
+    }
+
+    public void SpawnWave()
+    {
         if (spawnTimer <= 0)
         {
-            if (enemiesToSpawn.Count > 0)
+            if (spawnQueue.Count > 0)
             {
                 int spawnLocationId = Random.Range(0, spawnLocations.Count);
                 Transform spawnLocation = spawnLocations[spawnLocationId];
-                Instantiate(enemiesToSpawn[0], spawnLocation.position, Quaternion.identity);
-                enemiesToSpawn.RemoveAt(0);
+                Instantiate(spawnQueue[0], spawnLocation.position, Quaternion.identity);
+                spawnQueue.RemoveAt(0);
+
+                spawnTimer = spawnInterval;
             }
             else
             {
-                waveTimer = 0;
+                currWave += 1;
+                if (currWave % waveInterval == 0)
+                {
+                    spawnInterval = (spawnInterval == spawnIntervalMin ? spawnInterval : spawnInterval - 0.5f);
+                }
             }
-
         }
         else
         {
             spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
         }
     }
 
-    public void GenerateWave()
+    public void QueueEnemies()
     {
-        waveValue = currWave * income;
-        GenerateEnemies();
-
-        spawnInterval = waveDuration / enemiesToSpawn.Count;
-        waveTimer = waveDuration;
-    }
-
-    public void GenerateEnemies()
-    {
-        List<GameObject> generatedEnemies = new List<GameObject>();
-
-        int waveBase = (int)System.Math.Floor((double)currWave / waveInterval) * waveInterval;
-        if (waveBase > waveLimits.Keys.Last())
-        {
-            waveBase = waveLimits.Keys.Last();
-        }
+        List<GameObject> queue = new List<GameObject>();
 
         while (waveValue > 0)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
-            int randEnemyCost = enemies[randEnemyId].cost;
+            GameObject enemyPrefab = enemies[randEnemyId].GetPrefab();
+            int enemyCost = enemies[randEnemyId].GetCost();
 
-            GameObject enemyPrefab = enemies[randEnemyId].enemyPrefab;
-            string enemyTag = enemyPrefab.tag;
-
-            if (waveValue - randEnemyCost >= 0)
+            if (waveValue - enemyCost >= 0)
             {
-                generatedEnemies.Add(enemyPrefab);
-                waveValue -= randEnemyCost;
-                waveTracker[enemyTag] += 1;
-            }
-            else if (waveTracker[enemyTag] == waveLimits[waveBase][enemyTag])
-            {
-                continue;
+                queue.Add(enemyPrefab);
+                waveValue -= enemyCost;
             }
             else if (waveValue == 0)
             {
                 break;
             }
         }
-        enemiesToSpawn.Clear();
-        enemiesToSpawn = generatedEnemies;
 
-        foreach (KeyValuePair<string, int> entry in waveTracker)
-        {
-            waveTracker[entry.Key] = 0;
-        }
+        spawnQueue.Clear();
+        spawnQueue = queue;
     }
 
-    public void setWaveLimits()
-    {   
-        /**
-        waveLimits = new Dictionary<int, WaveRecord>()
-        {
-            {0, new WaveRecord { {"Normal", 0}, {"Drunk", 0}, {"Starving", 0}, {"Boss", 0}} },
-            {3, new WaveRecord {} {"Normal"}}
-            {10, new WaveRecord }
-        };
-        */
-    }
-}
+    [System.Serializable]
+    private class Enemy
+    {
+        [SerializeField] GameObject enemyPrefab;
+        [SerializeField] int cost;
 
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
+        public GameObject GetPrefab() { return enemyPrefab; }
+        public int GetCost() { return cost; }
+    }
 }
