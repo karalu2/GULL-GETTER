@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,8 +9,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool grounded;
 
-    public Transform RangedWeapon;
-
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -18,16 +17,20 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+
         body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
 
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        SpriteRenderer PlayerSprite = GetComponent<SpriteRenderer>();
+
         if (horizontalInput > 0.01f)
         {
-            sr.flipX = false;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+
         }
         else if (horizontalInput < -0.01f)
         {
-            sr.flipX = true;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+
         }
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && grounded)
