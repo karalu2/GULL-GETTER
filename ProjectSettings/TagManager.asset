@@ -12,8 +12,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Tide
-  - Terrain
+  - 
+  - 
   - 
   - 
   - 
@@ -41,12 +41,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Tide
-    uniqueID: 124124745
-    locked: 0
-  - name: Terrain
-    uniqueID: 3982976547
     locked: 0
   m_RenderingLayers:
   - Default
