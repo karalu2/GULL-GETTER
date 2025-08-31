@@ -110,7 +110,8 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public void setWaveLimits()
-    {
+    {   
+        /**
         waveLimits = new Dictionary<int, WaveRecord>()
         {
             {0, new WaveRecord { {"Normal", 0}, {"Drunk", 0}, {"Starving", 0}, {"Boss", 0}} },
