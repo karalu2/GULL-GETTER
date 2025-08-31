@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 410819668}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -539,7 +539,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4086137826902552895, guid: f34b953ec4bbf3e41a167ece3464f6fc, type: 3}
+  m_Sprite: {fileID: -1966381394238714707, guid: f34b953ec4bbf3e41a167ece3464f6fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -631,7 +631,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.13, y: 0.14}
-    newSize: {x: 0.14, y: 0.14}
+    newSize: {x: 0.13, y: 0.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -651,6 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jump: 5
 --- !u!95 &1265823254
 Animator:
   serializedVersion: 7
