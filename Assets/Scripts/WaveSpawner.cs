@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Rendering.Universal;
 using UnityEngine;
 
 using WaveRecord = System.Collections.Generic.Dictionary<string, int>;
@@ -112,8 +111,6 @@ public class WaveSpawner : MonoBehaviour
 
     public void setWaveLimits()
     {
-
-        /**
         waveLimits = new Dictionary<int, WaveRecord>()
         {
             {0, new WaveRecord { {"Normal", 0}, {"Drunk", 0}, {"Starving", 0}, {"Boss", 0}} },
