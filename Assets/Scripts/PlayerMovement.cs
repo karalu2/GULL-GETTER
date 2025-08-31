@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool grounded;
 
+    public Transform RangedWeapon;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -20,9 +22,13 @@ public class PlayerMovement : MonoBehaviour
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         if (horizontalInput > 0.01f)
+        {
             sr.flipX = false;
+        }
         else if (horizontalInput < -0.01f)
+        {
             sr.flipX = true;
+        }
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && grounded)
             Jump();
