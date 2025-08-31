@@ -10,10 +10,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        body.linearVelocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.linearVelocity.y);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        body.linearVelocity = new Vector2(horizontalInput * speed, body.linearVelocity.y);
 
-        if (Input.GetKey(KeyCode.Space))
-            body.linearVelocity = new Vector2(body.linearVelocity.x, speed);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (horizontalInput > 0.01f)
+            sr.flipX = false;
+        else if (horizontalInput < -0.01f)
+            sr.flipX = true;
     }
 
 }
