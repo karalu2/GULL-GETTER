@@ -9,7 +9,7 @@ public class StashBehavior : MonoBehaviour
     [SerializeField] float checkRadius = 1f;
     [SerializeField] string targetTag = "Enemy";
     [SerializeField] HealthBar healthBar;
-    [SerializeField] string gameOverScene = "GameOver";
+    [SerializeField] string gameOverScene = "Game Over";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +26,7 @@ public class StashBehavior : MonoBehaviour
             healthBar.SetHealth(health);
             if (health == 0)
             {
-                SceneManager.LoadScene("GameOver");
+                SceneManager.LoadScene(gameOverScene);
             }
         }
     }
@@ -45,7 +45,7 @@ public class StashBehavior : MonoBehaviour
 
                     if (health == 0)
                     {
-                        SceneManager.LoadScene("GameOver");
+                        SceneManager.LoadScene(gameOverScene);
                     }
                 }
             }

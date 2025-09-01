@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileDespawn : MonoBehaviour
 {
-    [SerializeField] float groundedDespawnTimer = 2;
+    // [SerializeField] float groundedDespawnTimer = 2;
     [SerializeField] float despawnTimer = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
