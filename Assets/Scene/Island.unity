@@ -1871,6 +1871,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2076294218}
   - component: {fileID: 2076294217}
+  - component: {fileID: 2076294219}
   m_Layer: 3
   m_Name: FishPile
   m_TagString: Untagged
@@ -1948,6 +1949,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &2076294219
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2076294216}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.0010294557, y: -0.028768135}
+  m_Size: {x: 0.20574725, y: 0.22455363}
+  m_Direction: 0
 --- !u!1 &2113233440
 GameObject:
   m_ObjectHideFlags: 0
@@ -1989,11 +2027,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 241029720940576062, guid: 982f4d1eb300c074a89cdb4eef624245, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.98
+      value: -0.82
       objectReference: {fileID: 0}
     - target: {fileID: 241029720940576062, guid: 982f4d1eb300c074a89cdb4eef624245, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 3.14
       objectReference: {fileID: 0}
     - target: {fileID: 241029720940576062, guid: 982f4d1eb300c074a89cdb4eef624245, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2062,11 +2100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0512d1653d8971f4b8a50e3384f63d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackCoolDown: 1
+  enemy: {fileID: 5135189493212975286}
+  fishPile: {fileID: 2076294218}
+  speed: 3
   range: 2
-  greed: 2
+  stopDistance: 1.5
   boxCollider: {fileID: 5135189493212975282}
-  fishLayer:
+  fishPileLayer:
     serializedVersion: 2
     m_Bits: 8
 --- !u!61 &5135189493212975282
@@ -2127,10 +2167,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 500
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 0.2
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2142,6 +2182,11 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!4 &5135189493212975286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 241029720940576062, guid: 982f4d1eb300c074a89cdb4eef624245, type: 3}
+  m_PrefabInstance: {fileID: 5031283179167821828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

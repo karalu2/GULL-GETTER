@@ -13,12 +13,6 @@ public class ProjectileDespawn : MonoBehaviour
         StartCoroutine(Despawn(despawnTimer));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     IEnumerator Despawn(float timer)
     {
         yield return new WaitForSeconds(timer);
