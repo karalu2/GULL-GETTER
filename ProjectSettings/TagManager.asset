@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: FishPile
+    uniqueID: 251408591
+    locked: 0
   - name: Tide
     uniqueID: 124124745
     locked: 0
