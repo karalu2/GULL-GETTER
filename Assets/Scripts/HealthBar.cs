@@ -9,4 +9,9 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = health;
     }
+
+    public float GetMaxHealth()
+    {
+        return slider.maxValue;
+    }
 }

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class StashBehavior : MonoBehaviour
 {
-    [SerializeField] float health = 100;
+    public float health = 100;
     [SerializeField] float refreshTimer = 2f;
     [SerializeField] float checkRadius = 1f;
     [SerializeField] string targetTag = "Enemy";
@@ -15,6 +15,15 @@ public class StashBehavior : MonoBehaviour
     {
         healthBar.SetHealth(health);
         StartCoroutine(CheckEnemyCollision());
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            health--;
+            healthBar.SetHealth(health);
+        }
     }
 
     public IEnumerator CheckEnemyCollision()

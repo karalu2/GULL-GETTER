@@ -6,10 +6,10 @@ public class ItemBehavior : MonoBehaviour
     [SerializeField] float despawnTimer = 6;
     void Awake()
     {
-        StartCoroutine(Despawn());
+        StartCoroutine(DespawnTimer());
     }
 
-    public IEnumerator Despawn()
+    public IEnumerator DespawnTimer()
     {
         yield return new WaitForSeconds(despawnTimer);
         Destroy(gameObject);

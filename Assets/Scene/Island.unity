@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ce2e5aa0fba5c41bf2f64b1f495cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 7504455551208991064, guid: 4011f53460f64734f8df1a69d88704ed, type: 3}
+  fishPrefab: {fileID: 7091763642329122673, guid: 7f908572de2aee94080ca83add59c638, type: 3}
   tideCooldown: 7
   tideDuration: 3
   tide: {fileID: 156360287}
@@ -1069,9 +1069,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1283,9 +1283,10 @@ GameObject:
   - component: {fileID: 1265823253}
   - component: {fileID: 1265823254}
   - component: {fileID: 1265823255}
+  - component: {fileID: 1265823256}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1354,7 +1355,7 @@ Transform:
   m_GameObject: {fileID: 1265823248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7224064, y: 0.32482165, z: 0}
+  m_LocalPosition: {x: -3.44, y: 0.11, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -1485,6 +1486,20 @@ MonoBehaviour:
   RangedWeapon: {fileID: 340038173}
   Projectile: {fileID: 1833101892083758441, guid: 5bb79db2becc2004694b15f67a28088d, type: 3}
   ProjectileSpeed: 1000
+--- !u!114 &1265823256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265823248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c158aa91dfd1d42818d33a8a054071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stash: {fileID: 2076294219}
+  healthBar: {fileID: 1051288689}
 --- !u!1001 &1336712269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1648,7 +1663,7 @@ GameObject:
   - component: {fileID: 1682332828}
   - component: {fileID: 1682332827}
   m_Layer: 3
-  m_Name: Image
+  m_Name: Fish Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
