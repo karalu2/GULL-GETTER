@@ -5,7 +5,8 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
-    [SerializeField] private Transform fishPile;
+    // [SerializeField] private Transform fishPile;
+    private Transform fishPile;
     [SerializeField] private float speed;
     [SerializeField] private int range;
     [SerializeField] private float stopDistance;
@@ -13,6 +14,11 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private LayerMask fishPileLayer;
     
     private Animator anim;
+
+    private void Start()
+    {
+        fishPile = GameObject.FindGameObjectWithTag("Stash").transform;
+    }
 
     private void Update()
     {
