@@ -8,11 +8,14 @@ public class WaveManager : MonoBehaviour
     [SerializeField] List<Transform> spawnLocations = new List<Transform>();
 
     [SerializeField] int income = 5;
-    [SerializeField] float spawnInterval = 3f;
+    [SerializeField] float spawnInterval = 5f;
+    [SerializeField] float spawnIntervalScaling = 0.5f;
     [SerializeField] float spawnIntervalMin = 1f;
     [SerializeField] float waveCooldown = 5f;
 
     private int currWave = 1;
+    private int waveMilestone = 1;
+    [SerializeField] int waveScaling = 5;
     private int waveValue;
 
     private WaveSpawner spawner;
@@ -35,9 +38,14 @@ public class WaveManager : MonoBehaviour
 
             currWave++;
             waveValue = currWave * income;
-            spawnInterval = Mathf.Max(spawnInterval - 0.5f, spawnIntervalMin);
+            if (currWave % waveScaling == 0)
+            {
+                waveMilestone++;
+                Debug.Log($"Wave milstone {waveMilestone} reached");
+                spawnInterval = Mathf.Max(spawnInterval - spawnIntervalScaling, spawnIntervalMin);   
+            }
 
-            Debug.Log($"Wave {currWave} complete, spawning next in {waveCooldown}s");
+            Debug.Log($"Wave {currWave} complete, next in {waveCooldown}s");
 
             yield return new WaitForSeconds(waveCooldown);
         }
