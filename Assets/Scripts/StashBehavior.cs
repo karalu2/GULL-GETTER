@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class StashBehavior : MonoBehaviour
 {
-    private float health;
+    public float health;
     [SerializeField] float refreshTimer = 2f;
     [SerializeField] float checkRadius = 1f;
     [SerializeField] string targetTag = "Enemy";
