@@ -1246,9 +1246,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1680,7 +1680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stash: {fileID: 2076294219}
   healthBar: {fileID: 1051288689}
-  itemValue: 10
+  itemValue: 5
 --- !u!1001 &1336712269
 PrefabInstance:
   m_ObjectHideFlags: 0
