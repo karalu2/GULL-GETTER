@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8178668999183165025}
   - component: {fileID: 1071593543190656972}
+  - component: {fileID: 797137479798187608}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -87,3 +88,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &797137479798187608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7504455551208991064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cebfd9a3f0c44cd438752023badcd615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  despawnTimer: 8
