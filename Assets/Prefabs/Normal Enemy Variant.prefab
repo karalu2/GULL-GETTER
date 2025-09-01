@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Enemy Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5978049315106109951, guid: 4ea056240ae78f447958de4d4d09cc71, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5401113947903707943}
   m_Layer: 0
   m_Name: Normal Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,11 +199,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1650067211164772689}
-  fishPile: {fileID: 0}
   speed: 3
   range: 2
+  health: 0
+  maxHealth: 3
   stopDistance: 1.5
   boxCollider: {fileID: 4899113190888404424}
   fishPileLayer:
     serializedVersion: 2
     m_Bits: 8
+  healthBar: {fileID: 0}

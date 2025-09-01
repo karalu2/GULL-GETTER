@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    // [SerializeField] List<Enemy> enemies = new List<Enemy>();
-    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] List<Enemy> enemies = new List<Enemy>();
+    // [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<Transform> spawnLocations = new List<Transform>();
 
     [SerializeField] int income = 5;
@@ -33,9 +33,9 @@ public class WaveManager : MonoBehaviour
     {
         while (true)
         {
-            // List<GameObject> queue = BuildQueue();
+            List<GameObject> queue = BuildQueue();
 
-            yield return StartCoroutine(spawner.SpawnWave(enemyPrefab, spawnLocations, spawnInterval));
+            yield return StartCoroutine(spawner.SpawnWave(queue, spawnLocations, spawnInterval));
 
             currWave++;
             waveValue = currWave * income;
@@ -52,7 +52,6 @@ public class WaveManager : MonoBehaviour
         }
     }
     
-    /*
     public List<GameObject> BuildQueue()
     {
         List<GameObject> queue = new List<GameObject>();
@@ -77,7 +76,6 @@ public class WaveManager : MonoBehaviour
 
         return queue;
     }
-    */
 
     [System.Serializable]
     private class Enemy

@@ -32,9 +32,9 @@ public class StashBehavior : MonoBehaviour
         }
     }
 
-    void OnCollisionStay2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.CompareTag(targetTag))
+        if (collider.gameObject.CompareTag(targetTag))
         {
             health--;
             healthBar.SetHealth(health);
@@ -42,6 +42,7 @@ public class StashBehavior : MonoBehaviour
             {
                 SceneManager.LoadScene(gameOverScene);
             }
+            Destroy(collider.gameObject);
         }
     }
     /*
