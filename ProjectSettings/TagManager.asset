@@ -45,11 +45,11 @@ TagManager:
   - name: FishPile
     uniqueID: 251408591
     locked: 0
-  - name: Tide
-    uniqueID: 124124745
-    locked: 0
   - name: Terrain
     uniqueID: 3982976547
+    locked: 0
+  - name: Tide
+    uniqueID: 124124745
     locked: 0
   m_RenderingLayers:
   - Default
