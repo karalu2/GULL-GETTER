@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class StashBehavior : MonoBehaviour
 {
-    public float health = 100;
+    private float health;
     [SerializeField] float refreshTimer = 2f;
     [SerializeField] float checkRadius = 1f;
     [SerializeField] string targetTag = "Enemy";
@@ -14,15 +14,16 @@ public class StashBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        health = healthBar.GetMaxHealth();
         healthBar.SetHealth(health);
-        StartCoroutine(CheckEnemyCollision());
+        // StartCoroutine(CheckEnemyCollision());
     }
 
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.T))
         {
-            health-=10;
+            health -= 10;
             healthBar.SetHealth(health);
             if (health == 0)
             {
@@ -31,6 +32,19 @@ public class StashBehavior : MonoBehaviour
         }
     }
 
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag(targetTag))
+        {
+            health--;
+            healthBar.SetHealth(health);
+            if (health == 0)
+            {
+                SceneManager.LoadScene(gameOverScene);
+            }
+        }
+    }
+    /*
     public IEnumerator CheckEnemyCollision()
     {
         while (true)
@@ -53,4 +67,5 @@ public class StashBehavior : MonoBehaviour
             yield return new WaitForSeconds(refreshTimer);
         }
     }
+    */
 }
