@@ -9,15 +9,19 @@ public class EnemyBehavior : MonoBehaviour
     private Transform fishPile;
     [SerializeField] private float speed;
     [SerializeField] private int range;
+    [SerializeField] private float health, maxHealth = 3f;
     [SerializeField] private float stopDistance;
     [SerializeField] private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask fishPileLayer;
+
+    [SerializeField] EnemyHealthBar healthBar;
     
     private Animator anim;
 
     private void Start()
     {
         fishPile = GameObject.FindGameObjectWithTag("Stash").transform;
+        healthBar.UpdateHealthBar(health, maxHealth);
     }
 
     private void Update()
@@ -46,6 +50,24 @@ public class EnemyBehavior : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
+        healthBar = GetComponentInChildren<EnemyHealthBar>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile")) {
+            TakeDamage(1);
+        }
+    }
+
+    public void TakeDamage(float damageAmount)
+    {
+        health -= damageAmount;
+        healthBar.UpdateHealthBar(health, maxHealth);
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void MoveInDirection(int _direction)

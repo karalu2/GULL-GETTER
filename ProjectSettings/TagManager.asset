@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Item
   - Stash
+  - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
