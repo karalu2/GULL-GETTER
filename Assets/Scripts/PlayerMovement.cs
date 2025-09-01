@@ -9,6 +9,14 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private bool grounded;
 
+    private Vector2 screenBounds;
+    private float playerHalfWidth;
+
+    private void Start()
+    {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        playerHalfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
+    }
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -37,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
             Jump();
 
         anim.SetBool("walk", horizontalInput != 0);
+
+
+        float clampedX = Mathf.Clamp(transform.position.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
+        Vector2 pos = transform.position;
+        pos.x = clampedX;
+        transform.position = pos;
     }
 
     private void Jump()
