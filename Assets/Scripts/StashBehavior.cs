@@ -20,18 +20,18 @@ public class StashBehavior : MonoBehaviour
         // StartCoroutine(CheckEnemyCollision());
     }
 
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            health -= 10;
-            healthBar.SetHealth(health);
-            if (health == 0)
-            {
-                SceneManager.LoadScene(gameOverScene);
-            }
-        }
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyUp(KeyCode.T))
+    //    {
+    //        health -= 10;
+    //        healthBar.SetHealth(health);
+    //        if (health == 0)
+    //        {
+    //            SceneManager.LoadScene(gameOverScene);
+    //        }
+    //    }
+    //}
 
     public void TakeDamage(float damage)
     {

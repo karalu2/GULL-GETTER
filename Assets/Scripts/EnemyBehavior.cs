@@ -20,7 +20,7 @@ public class EnemyBehavior : MonoBehaviour
     private HealthBar stashHealth;
 
     [SerializeField] float eatingTime = 6f;
-    [SerializeField] float baseDamage = 1f;
+    [SerializeField] float baseDamage = 5f;
     private float startTime;
     
     private Animator anim;
