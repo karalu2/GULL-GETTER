@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 743411738}
   - component: {fileID: 743411737}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Stash HP Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
