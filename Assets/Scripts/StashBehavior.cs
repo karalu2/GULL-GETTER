@@ -13,6 +13,7 @@ public class StashBehavior : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        healthBar.SetHealth(health);
         StartCoroutine(CheckEnemyCollision());
     }
 
@@ -27,6 +28,7 @@ public class StashBehavior : MonoBehaviour
                 {
                     health--;
                     healthBar.SetHealth(health);
+
                     if (health == 0)
                     {
                         SceneManager.LoadScene("Game Over");
