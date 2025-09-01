@@ -19,14 +19,6 @@ public class ProjectileDespawn : MonoBehaviour
 
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-        {
-            StartCoroutine(Despawn(groundedDespawnTimer));
-        }
-    }
-
     IEnumerator Despawn(float timer)
     {
         yield return new WaitForSeconds(timer);
