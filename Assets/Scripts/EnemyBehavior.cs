@@ -15,6 +15,13 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private LayerMask fishPileLayer;
 
     [SerializeField] EnemyHealthBar healthBar;
+
+    private StashBehavior stashBehavior;
+    private HealthBar stashHealth;
+
+    [SerializeField] float eatingTime = 5f;
+    [SerializeField] float baseDamage = 1f;
+    private float startTime;
     
     private Animator anim;
 
@@ -22,6 +29,11 @@ public class EnemyBehavior : MonoBehaviour
     {
         fishPile = GameObject.FindGameObjectWithTag("Stash").transform;
         healthBar.UpdateHealthBar(health, maxHealth);
+
+        stashBehavior = GameObject.FindGameObjectWithTag("Stash").GetComponent<StashBehavior>();
+        stashHealth = GameObject.FindGameObjectWithTag("Stash HP").GetComponent<HealthBar>();
+
+        startTime = Time.time;
     }
 
     private void Update()
@@ -31,6 +43,13 @@ public class EnemyBehavior : MonoBehaviour
             Debug.Log("eating");
             anim.SetBool("eat", true);
             MoveInDirection(0);
+
+            if (Time.time - startTime >= eatingTime)
+            {
+                stashBehavior.TakeDamage(baseDamage);
+                Destroy(gameObject);
+            }
+
             return;
         }
 

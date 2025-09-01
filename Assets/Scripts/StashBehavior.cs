@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,16 @@ public class StashBehavior : MonoBehaviour
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        health = Math.Max(0, health - damage);
+        healthBar.SetHealth(health);
+        if (health == 0)
+        {
+            SceneManager.LoadScene(gameOverScene);
+        }
+    }
+    /*
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag(targetTag))
@@ -45,6 +56,7 @@ public class StashBehavior : MonoBehaviour
             Destroy(collider.gameObject);
         }
     }
+    */
     /*
     public IEnumerator CheckEnemyCollision()
     {

@@ -9,6 +9,7 @@ TagManager:
   - Stash
   - Enemy
   - Projectile
+  - Stash HP
   layers:
   - Default
   - TransparentFX
