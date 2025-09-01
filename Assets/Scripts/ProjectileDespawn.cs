@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class ProjectileDespawn : MonoBehaviour
 {
-    [SerializeField] float despawnTimer = 2;
+    [SerializeField] float groundedDespawnTimer = 2;
+    [SerializeField] float despawnTimer = 5;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-
+        StartCoroutine(Despawn(despawnTimer));
     }
 
     // Update is called once per frame
@@ -22,13 +23,13 @@ public class ProjectileDespawn : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
-            StartCoroutine(Despawn());
+            StartCoroutine(Despawn(groundedDespawnTimer));
         }
     }
 
-    IEnumerator Despawn()
+    IEnumerator Despawn(float timer)
     {
-        yield return new WaitForSeconds(despawnTimer);
+        yield return new WaitForSeconds(timer);
         Destroy(gameObject);
     }
 }
