@@ -17,15 +17,6 @@ public class StashBehavior : MonoBehaviour
         StartCoroutine(CheckEnemyCollision());
     }
 
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.T))
-        {
-            health--;
-            healthBar.SetHealth(health);
-        }
-    }
-
     public IEnumerator CheckEnemyCollision()
     {
         while (true)
