@@ -5,9 +5,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jump;
+    [SerializeField] private LayerMask groundLayer; 
     private Rigidbody2D body;
     private Animator anim;
-    private bool grounded;
+    private BoxCollider2D boxCollider;
+
 
     private Vector2 screenBounds;
     private float playerHalfWidth;
@@ -21,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
     private void Update()
     {
@@ -41,10 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && grounded)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)) && isGrounded())
             Jump();
 
         anim.SetBool("walk", horizontalInput != 0);
+        anim.SetBool("grounded", isGrounded());
 
 
         float clampedX = Mathf.Clamp(transform.position.x, -screenBounds.x + playerHalfWidth, screenBounds.x - playerHalfWidth);
@@ -56,13 +60,16 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         body.linearVelocity = new Vector2(body.linearVelocity.x, jump);
-        grounded = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
-            grounded = true;
+    }
+
+    private bool isGrounded()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider != null;
     }
 
 }
