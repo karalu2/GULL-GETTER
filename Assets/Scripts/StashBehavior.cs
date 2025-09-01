@@ -26,7 +26,7 @@ public class StashBehavior : MonoBehaviour
             healthBar.SetHealth(health);
             if (health == 0)
             {
-                SceneManager.LoadScene(gameOverScene);
+                SceneManager.LoadScene("GameOver");
             }
         }
     }
@@ -45,7 +45,7 @@ public class StashBehavior : MonoBehaviour
 
                     if (health == 0)
                     {
-                        SceneManager.LoadScene(gameOverScene);
+                        SceneManager.LoadScene("GameOver");
                     }
                 }
             }
