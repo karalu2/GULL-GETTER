@@ -38,7 +38,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (FishInRange())
+        if (StashInRange())
         {
             Debug.Log("eating");
             anim.SetBool("eat", true);
@@ -103,7 +103,7 @@ public class EnemyBehavior : MonoBehaviour
             enemy.position.y, enemy.position.z);
     }
 
-    private bool FishInRange()
+    private bool StashInRange()
     {
         RaycastHit2D hit = Physics2D.BoxCast(
             boxCollider.bounds.center,

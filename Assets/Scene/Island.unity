@@ -1563,7 +1563,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1265823252
 BoxCollider2D:
@@ -2681,11 +2681,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0011633992, y: -0.046843756}
+  m_Offset: {x: 0, y: -0.046843756}
   m_Size: {x: 0.22214282, y: 0.2541425}
   m_Direction: 0
 --- !u!1 &2113233440
@@ -2731,9 +2731,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4483625149970534728, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6377388670325260449, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
       propertyPath: baseDamage
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377388670325260449, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
+      propertyPath: eatingTime
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6377388670325260449, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
       propertyPath: stashLayer.m_Bits
@@ -2741,11 +2749,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8404204485421712464, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.99
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8404204485421712464, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.2
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 8404204485421712464, guid: bb94443520ab3154e847f3c139c54af9, type: 3}
       propertyPath: m_LocalPosition.z
