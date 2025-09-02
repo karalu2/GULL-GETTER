@@ -338,7 +338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: fish_pile
+      name: stash
       rect:
         serializedVersion: 2
         x: 2
@@ -377,10 +377,10 @@ TextureImporter:
       crab: -68751727340038015
       fish: 980155311395259703
       fish_bone: -7583409310137716746
-      fish_pile: -732356172534689064
       rock: 6761164967045977113
       shark: -5428206428529569624
       shell: 5508725064705088119
+      stash: -732356172534689064
       stick: 6099581493293703690
       umbrella: 5860025163644826426
   mipmapLimitGroupName: 

@@ -14,7 +14,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - FishPile
+  - Stash
   - Water
   - UI
   - Tide
@@ -47,7 +47,7 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: FishPile
+  - name: Stash
     uniqueID: 251408591
     locked: 0
   - name: Terrain
@@ -58,6 +58,9 @@ TagManager:
     locked: 0
   - name: Health Bar
     uniqueID: 1954926869
+    locked: 0
+  - name: Weapon
+    uniqueID: 4192748221
     locked: 0
   m_RenderingLayers:
   - Default

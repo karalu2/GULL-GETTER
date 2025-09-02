@@ -436,8 +436,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -102219075
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 6761164967045977113, guid: c60678ee4858c024dabfdf73dc3e65a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -797,7 +797,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 0000000049fe6507236667edcf30fc0e15d18574
+  m_ApplyToSortingLayers: 0000000049fe6507236667edcf30fc0e15d18574bd42e8f9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2633,7 +2633,7 @@ GameObject:
   - component: {fileID: 2076294219}
   - component: {fileID: 2076294220}
   m_Layer: 3
-  m_Name: FishPile
+  m_Name: Stash
   m_TagString: Stash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
