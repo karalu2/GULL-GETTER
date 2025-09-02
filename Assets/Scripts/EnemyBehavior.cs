@@ -6,13 +6,13 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
     // [SerializeField] private Transform fishPile;
-    private Transform fishPile;
+    private Transform stash;
     [SerializeField] private float speed;
     [SerializeField] private int range;
     [SerializeField] private float health, maxHealth = 3f;
     [SerializeField] private float stopDistance;
     [SerializeField] private BoxCollider2D boxCollider;
-    [SerializeField] private LayerMask fishPileLayer;
+    [SerializeField] private LayerMask stashLayer;
 
     [SerializeField] EnemyHealthBar healthBar;
 
@@ -27,7 +27,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        fishPile = GameObject.FindGameObjectWithTag("Stash").transform;
+        stash = GameObject.FindGameObjectWithTag("Stash").transform;
         healthBar.UpdateHealthBar(health, maxHealth);
 
         stashBehavior = GameObject.FindGameObjectWithTag("Stash").GetComponent<StashBehavior>();
@@ -55,11 +55,11 @@ public class EnemyBehavior : MonoBehaviour
 
         anim.SetBool("eat", false);
 
-        if (transform.position.x > (fishPile.position.x + stopDistance))
+        if (transform.position.x > (stash.position.x + stopDistance))
         {
             MoveInDirection(-1);
         }
-        else if (transform.position.x < (fishPile.position.x - stopDistance))
+        else if (transform.position.x < (stash.position.x - stopDistance))
         {
             MoveInDirection(1);
         }
@@ -108,7 +108,7 @@ public class EnemyBehavior : MonoBehaviour
         RaycastHit2D hit = Physics2D.BoxCast(
             boxCollider.bounds.center,
             new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y * range, boxCollider.bounds.size.z),
-            0, Vector2.left, 0, fishPileLayer);
+            0, Vector2.left, 0, stashLayer);
 
         return hit.collider != null;
     }
