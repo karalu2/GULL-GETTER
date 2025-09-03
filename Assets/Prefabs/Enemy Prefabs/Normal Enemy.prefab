@@ -601,5 +601,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   healthBar: {fileID: 0}
-  eatingTime: 6
+  eatingTime: 5
   baseDamage: 5

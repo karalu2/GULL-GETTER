@@ -419,10 +419,12 @@ MonoBehaviour:
   maxHealth: 3
   stopDistance: 1.5
   boxCollider: {fileID: 6702175644771234937}
-  fishPileLayer:
+  stashLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   healthBar: {fileID: 0}
+  eatingTime: 5
+  baseDamage: 5
 --- !u!1 &4774591471684861962
 GameObject:
   m_ObjectHideFlags: 0
