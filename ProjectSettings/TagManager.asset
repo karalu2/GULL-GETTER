@@ -53,14 +53,14 @@ TagManager:
   - name: Terrain
     uniqueID: 3982976547
     locked: 0
+  - name: Weapon
+    uniqueID: 4192748221
+    locked: 0
   - name: Tide
     uniqueID: 124124745
     locked: 0
   - name: Health Bar
     uniqueID: 1954926869
-    locked: 0
-  - name: Weapon
-    uniqueID: 4192748221
     locked: 0
   m_RenderingLayers:
   - Default
