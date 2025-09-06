@@ -14,6 +14,7 @@ public class ItemCollector : MonoBehaviour
             stash.health = Mathf.Min(healthBar.GetMaxHealth(), stash.health + itemValue);
             healthBar.SetHealth(stash.health);
             Destroy(collision.gameObject);
+            ScoreManager.instance.AddPoint();
             //Debug.Log($"Item picked up at {collision.gameObject.transform.position}");
         }     
     }
